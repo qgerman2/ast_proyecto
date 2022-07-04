@@ -1,0 +1,241 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2022-07-03 17:46:15
+
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft Fregat;
+GMAT Fregat.DateFormat = UTCGregorian;
+GMAT Fregat.Epoch = '18 Sep 2022 00:08:00.000';
+GMAT Fregat.CoordinateSystem = EarthMJ2000Eq;
+GMAT Fregat.DisplayStateType = Keplerian;
+GMAT Fregat.SMA = 6577.999999999997;
+GMAT Fregat.ECC = 2.345180601527224e-016;
+GMAT Fregat.INC = 62.925556;
+GMAT Fregat.RAAN = 0;
+GMAT Fregat.AOP = 0;
+GMAT Fregat.TA = 0;
+GMAT Fregat.DryMass = 1942;
+GMAT Fregat.Cd = 2.2;
+GMAT Fregat.Cr = 1.8;
+GMAT Fregat.DragArea = 15;
+GMAT Fregat.SRPArea = 1;
+GMAT Fregat.Tanks = {ChemicalTank1};
+GMAT Fregat.NAIFId = -10000001;
+GMAT Fregat.NAIFIdReferenceFrame = -9000001;
+GMAT Fregat.OrbitColor = Red;
+GMAT Fregat.TargetColor = Teal;
+GMAT Fregat.OrbitErrorCovariance = [ 1e+070 0 0 0 0 0 ; 0 1e+070 0 0 0 0 ; 0 0 1e+070 0 0 0 ; 0 0 0 1e+070 0 0 ; 0 0 0 0 1e+070 0 ; 0 0 0 0 0 1e+070 ];
+GMAT Fregat.CdSigma = 1e+070;
+GMAT Fregat.CrSigma = 1e+070;
+GMAT Fregat.Id = 'SatId';
+GMAT Fregat.Attitude = CoordinateSystemFixed;
+GMAT Fregat.SPADSRPScaleFactor = 1;
+GMAT Fregat.ModelFile = 'aura.3ds';
+GMAT Fregat.ModelOffsetX = 0;
+GMAT Fregat.ModelOffsetY = 0;
+GMAT Fregat.ModelOffsetZ = 0;
+GMAT Fregat.ModelRotationX = 0;
+GMAT Fregat.ModelRotationY = 0;
+GMAT Fregat.ModelRotationZ = 0;
+GMAT Fregat.ModelScale = 1;
+GMAT Fregat.AttitudeDisplayStateType = 'Quaternion';
+GMAT Fregat.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT Fregat.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT Fregat.EulerAngleSequence = '321';
+
+%----------------------------------------
+%---------- Hardware Components
+%----------------------------------------
+
+Create ChemicalTank ChemicalTank1;
+GMAT ChemicalTank1.AllowNegativeFuelMass = true;
+GMAT ChemicalTank1.FuelMass = 500;
+GMAT ChemicalTank1.Pressure = 1500;
+GMAT ChemicalTank1.Temperature = 20;
+GMAT ChemicalTank1.RefTemperature = 20;
+GMAT ChemicalTank1.Volume = 4;
+GMAT ChemicalTank1.FuelDensity = 1260;
+GMAT ChemicalTank1.PressureModel = PressureRegulated;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+GMAT DefaultProp_ForceModel.CentralBody = Earth;
+GMAT DefaultProp_ForceModel.PrimaryBodies = {Earth};
+GMAT DefaultProp_ForceModel.Drag = None;
+GMAT DefaultProp_ForceModel.SRP = Off;
+GMAT DefaultProp_ForceModel.RelativisticCorrection = Off;
+GMAT DefaultProp_ForceModel.ErrorControl = RSSStep;
+GMAT DefaultProp_ForceModel.GravityField.Earth.Degree = 9;
+GMAT DefaultProp_ForceModel.GravityField.Earth.Order = 9;
+GMAT DefaultProp_ForceModel.GravityField.Earth.StmLimit = 100;
+GMAT DefaultProp_ForceModel.GravityField.Earth.PotentialFile = 'JGM2.cof';
+GMAT DefaultProp_ForceModel.GravityField.Earth.TideModel = 'None';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+GMAT DefaultProp.FM = DefaultProp_ForceModel;
+GMAT DefaultProp.Type = RungeKutta89;
+GMAT DefaultProp.InitialStepSize = 60;
+GMAT DefaultProp.Accuracy = 9.999999999999999e-012;
+GMAT DefaultProp.MinStep = 0.001;
+GMAT DefaultProp.MaxStep = 2700;
+GMAT DefaultProp.MaxStepAttempts = 50;
+GMAT DefaultProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Burns
+%----------------------------------------
+
+Create ImpulsiveBurn GTO;
+GMAT GTO.CoordinateSystem = Local;
+GMAT GTO.Origin = Earth;
+GMAT GTO.Axes = VNB;
+GMAT GTO.Element1 = 0;
+GMAT GTO.Element2 = 0;
+GMAT GTO.Element3 = 0;
+GMAT GTO.DecrementMass = true;
+GMAT GTO.Tank = {ChemicalTank1};
+GMAT GTO.Isp = 327;
+GMAT GTO.GravitationalAccel = 9.810000000000001;
+
+Create ImpulsiveBurn Circularizar;
+GMAT Circularizar.CoordinateSystem = Local;
+GMAT Circularizar.Origin = Earth;
+GMAT Circularizar.Axes = VNB;
+GMAT Circularizar.Element1 = 0;
+GMAT Circularizar.Element2 = 0;
+GMAT Circularizar.Element3 = 0;
+GMAT Circularizar.DecrementMass = true;
+GMAT Circularizar.Tank = {ChemicalTank1};
+GMAT Circularizar.Isp = 327;
+GMAT Circularizar.GravitationalAccel = 9.810000000000001;
+
+Create ImpulsiveBurn Inclinacion;
+GMAT Inclinacion.CoordinateSystem = Local;
+GMAT Inclinacion.Origin = Earth;
+GMAT Inclinacion.Axes = VNB;
+GMAT Inclinacion.Element1 = 0;
+GMAT Inclinacion.Element2 = 0;
+GMAT Inclinacion.Element3 = 0;
+GMAT Inclinacion.DecrementMass = true;
+GMAT Inclinacion.Tank = {ChemicalTank1};
+GMAT Inclinacion.Isp = 300;
+GMAT Inclinacion.GravitationalAccel = 9.810000000000001;
+
+%----------------------------------------
+%---------- Solvers
+%----------------------------------------
+
+Create DifferentialCorrector DefaultDC;
+GMAT DefaultDC.ShowProgress = true;
+GMAT DefaultDC.ReportStyle = Normal;
+GMAT DefaultDC.ReportFile = 'DifferentialCorrectorDefaultDC.data';
+GMAT DefaultDC.MaximumIterations = 50;
+GMAT DefaultDC.DerivativeMethod = ForwardDifference;
+GMAT DefaultDC.Algorithm = NewtonRaphson;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView DefaultOrbitView;
+GMAT DefaultOrbitView.SolverIterations = Current;
+GMAT DefaultOrbitView.UpperLeft = [ 0.06544502617801047 0.1802973977695167 ];
+GMAT DefaultOrbitView.Size = [ 0.5523560209424084 0.4721189591078067 ];
+GMAT DefaultOrbitView.RelativeZOrder = 811;
+GMAT DefaultOrbitView.Maximized = false;
+GMAT DefaultOrbitView.Add = {Fregat, Earth, Sun};
+GMAT DefaultOrbitView.CoordinateSystem = EarthMJ2000Eq;
+GMAT DefaultOrbitView.DrawObject = [ true true true ];
+GMAT DefaultOrbitView.DataCollectFrequency = 1;
+GMAT DefaultOrbitView.UpdatePlotFrequency = 50;
+GMAT DefaultOrbitView.NumPointsToRedraw = 0;
+GMAT DefaultOrbitView.ShowPlot = true;
+GMAT DefaultOrbitView.MaxPlotPoints = 20000;
+GMAT DefaultOrbitView.ShowLabels = true;
+GMAT DefaultOrbitView.ViewPointReference = Earth;
+GMAT DefaultOrbitView.ViewPointVector = [ 30000 0 0 ];
+GMAT DefaultOrbitView.ViewDirection = Earth;
+GMAT DefaultOrbitView.ViewScaleFactor = 1;
+GMAT DefaultOrbitView.ViewUpCoordinateSystem = EarthMJ2000Eq;
+GMAT DefaultOrbitView.ViewUpAxis = Z;
+GMAT DefaultOrbitView.EclipticPlane = Off;
+GMAT DefaultOrbitView.XYPlane = On;
+GMAT DefaultOrbitView.WireFrame = Off;
+GMAT DefaultOrbitView.Axes = On;
+GMAT DefaultOrbitView.Grid = Off;
+GMAT DefaultOrbitView.SunLine = On;
+GMAT DefaultOrbitView.UseInitialView = On;
+GMAT DefaultOrbitView.StarCount = 7000;
+GMAT DefaultOrbitView.EnableStars = Off;
+GMAT DefaultOrbitView.EnableConstellations = On;
+
+Create GroundTrackPlot DefaultGroundTrackPlot;
+GMAT DefaultGroundTrackPlot.SolverIterations = Current;
+GMAT DefaultGroundTrackPlot.UpperLeft = [ 0 0.395910780669145 ];
+GMAT DefaultGroundTrackPlot.Size = [ 0.5165794066317626 0.395910780669145 ];
+GMAT DefaultGroundTrackPlot.RelativeZOrder = 807;
+GMAT DefaultGroundTrackPlot.Maximized = false;
+GMAT DefaultGroundTrackPlot.Add = {Fregat};
+GMAT DefaultGroundTrackPlot.DataCollectFrequency = 1;
+GMAT DefaultGroundTrackPlot.UpdatePlotFrequency = 50;
+GMAT DefaultGroundTrackPlot.NumPointsToRedraw = 0;
+GMAT DefaultGroundTrackPlot.ShowPlot = true;
+GMAT DefaultGroundTrackPlot.MaxPlotPoints = 20000;
+GMAT DefaultGroundTrackPlot.CentralBody = Earth;
+GMAT DefaultGroundTrackPlot.TextureMap = 'ModifiedBlueMarble.jpg';
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+
+
+BeginMissionSequence;
+Target DefaultDC {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
+   Vary 'Mass_inicial' DefaultDC(Fregat.ChemicalTank1.FuelMass = 3996.071548795376, {Perturbation = 1, Lower = 1000, Upper = 6000, MaxStep = 100, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+   Target 'GTO' DefaultDC {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
+      Maneuver 'Maneuver_GTO' GTO(Fregat);
+      Vary 'DV_GTO' DefaultDC(GTO.Element1 = 2.033136, {Perturbation = 0.0001, Lower = 2.03, Upper = 2.035, MaxStep = 0.00005, AdditiveScaleFactor = 0, MultiplicativeScaleFactor = 1.0});
+      Propagate 'Propagate_GTO' DefaultProp(Fregat) {Fregat.Earth.Apoapsis, OrbitColor = [255 0 0]};
+      Achieve 'Altitude_GTO' DefaultDC(Fregat.Earth.Altitude = 19100, {Tolerance = 2});
+   EndTarget;  % For targeter DefaultDC
+   Target 'Circularizar' DefaultDC {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
+      Maneuver 'Maneuver_Circ' Circularizar(Fregat);
+      Vary 'DV_Circ' DefaultDC(Circularizar.Element1 = 1.42, {Perturbation = 0.0001, Lower = 1.4, Upper = 1.5, MaxStep = 0.00001, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+      Achieve 'ECC_Circ' DefaultDC(Fregat.Earth.ECC = 0, {Tolerance = 0.001});
+   EndTarget;  % For targeter DefaultDC
+   Propagate 'Propagate_Circ' DefaultProp(Fregat) {Fregat.EarthMJ2000Eq.Z = 0, OrbitColor = [0 255 0]};
+   Target 'Inclinacion' DefaultDC {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
+      Maneuver 'Maneuver_Inc' Inclinacion(Fregat);
+      Vary 'DV_Inc' DefaultDC(Inclinacion.Element2 = 0.1300020800184939, {Perturbation = 0.000001, Lower = -10e9, Upper = 10e9, MaxStep = 0.01, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+      Achieve 'Inc_Inc' DefaultDC(Fregat.EarthMJ2000Eq.INC = 64.8, {Tolerance = 0.01});
+   EndTarget;  % For targeter DefaultDC
+   Achieve 'Mass_final' DefaultDC(Fregat.ChemicalTank1.FuelMass = 0, {Tolerance = 1});
+EndTarget;  % For targeter DefaultDC
+Propagate DefaultProp(Fregat) {Fregat.ElapsedSecs = 10000, OrbitColor = [0 0 255]};
