@@ -1,0 +1,564 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2022-07-07 11:33:37
+
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft COSMOS_2433;
+GMAT COSMOS_2433.DateFormat = UTCGregorian;
+GMAT COSMOS_2433.Epoch = '18 Sep 2022 08:00:00.000';
+GMAT COSMOS_2433.CoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2433.DisplayStateType = Keplerian;
+GMAT COSMOS_2433.SMA = 25478.00000000004;
+GMAT COSMOS_2433.ECC = 1.306160265265538e-015;
+GMAT COSMOS_2433.INC = 64.8;
+GMAT COSMOS_2433.RAAN = 360;
+GMAT COSMOS_2433.AOP = 0;
+GMAT COSMOS_2433.TA = 312.94;
+GMAT COSMOS_2433.DryMass = 850;
+GMAT COSMOS_2433.Cd = 2.2;
+GMAT COSMOS_2433.Cr = 1.8;
+GMAT COSMOS_2433.DragArea = 15;
+GMAT COSMOS_2433.SRPArea = 1;
+GMAT COSMOS_2433.NAIFId = -10000001;
+GMAT COSMOS_2433.NAIFIdReferenceFrame = -9000001;
+GMAT COSMOS_2433.OrbitColor = [255 0 255];
+GMAT COSMOS_2433.TargetColor = Teal;
+GMAT COSMOS_2433.OrbitErrorCovariance = [ 1e+070 0 0 0 0 0 ; 0 1e+070 0 0 0 0 ; 0 0 1e+070 0 0 0 ; 0 0 0 1e+070 0 0 ; 0 0 0 0 1e+070 0 ; 0 0 0 0 0 1e+070 ];
+GMAT COSMOS_2433.CdSigma = 1e+070;
+GMAT COSMOS_2433.CrSigma = 1e+070;
+GMAT COSMOS_2433.Id = 'SatId';
+GMAT COSMOS_2433.Attitude = CoordinateSystemFixed;
+GMAT COSMOS_2433.SPADSRPScaleFactor = 1;
+GMAT COSMOS_2433.ModelFile = 'aura.3ds';
+GMAT COSMOS_2433.ModelOffsetX = 0;
+GMAT COSMOS_2433.ModelOffsetY = 0;
+GMAT COSMOS_2433.ModelOffsetZ = 0;
+GMAT COSMOS_2433.ModelRotationX = 0;
+GMAT COSMOS_2433.ModelRotationY = 0;
+GMAT COSMOS_2433.ModelRotationZ = 0;
+GMAT COSMOS_2433.ModelScale = 1;
+GMAT COSMOS_2433.AttitudeDisplayStateType = 'Quaternion';
+GMAT COSMOS_2433.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT COSMOS_2433.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2433.EulerAngleSequence = '321';
+
+Create Spacecraft COSMOS_2432;
+GMAT COSMOS_2432.DateFormat = UTCGregorian;
+GMAT COSMOS_2432.Epoch = '18 Sep 2022 08:00:00.000';
+GMAT COSMOS_2432.CoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2432.DisplayStateType = Keplerian;
+GMAT COSMOS_2432.SMA = 25478.00000000003;
+GMAT COSMOS_2432.ECC = 7.952572805663573e-016;
+GMAT COSMOS_2432.INC = 64.80000000000001;
+GMAT COSMOS_2432.RAAN = 360;
+GMAT COSMOS_2432.AOP = 0;
+GMAT COSMOS_2432.TA = 357.94;
+GMAT COSMOS_2432.DryMass = 850;
+GMAT COSMOS_2432.Cd = 2.2;
+GMAT COSMOS_2432.Cr = 1.8;
+GMAT COSMOS_2432.DragArea = 15;
+GMAT COSMOS_2432.SRPArea = 1;
+GMAT COSMOS_2432.NAIFId = -10000001;
+GMAT COSMOS_2432.NAIFIdReferenceFrame = -9000001;
+GMAT COSMOS_2432.OrbitColor = [255 0 255];
+GMAT COSMOS_2432.TargetColor = Teal;
+GMAT COSMOS_2432.OrbitErrorCovariance = [ 1e+070 0 0 0 0 0 ; 0 1e+070 0 0 0 0 ; 0 0 1e+070 0 0 0 ; 0 0 0 1e+070 0 0 ; 0 0 0 0 1e+070 0 ; 0 0 0 0 0 1e+070 ];
+GMAT COSMOS_2432.CdSigma = 1e+070;
+GMAT COSMOS_2432.CrSigma = 1e+070;
+GMAT COSMOS_2432.Id = 'SatId';
+GMAT COSMOS_2432.Attitude = CoordinateSystemFixed;
+GMAT COSMOS_2432.SPADSRPScaleFactor = 1;
+GMAT COSMOS_2432.ModelFile = 'aura.3ds';
+GMAT COSMOS_2432.ModelOffsetX = 0;
+GMAT COSMOS_2432.ModelOffsetY = 0;
+GMAT COSMOS_2432.ModelOffsetZ = 0;
+GMAT COSMOS_2432.ModelRotationX = 0;
+GMAT COSMOS_2432.ModelRotationY = 0;
+GMAT COSMOS_2432.ModelRotationZ = 0;
+GMAT COSMOS_2432.ModelScale = 1;
+GMAT COSMOS_2432.AttitudeDisplayStateType = 'Quaternion';
+GMAT COSMOS_2432.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT COSMOS_2432.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2432.EulerAngleSequence = '321';
+
+Create Spacecraft COSMOS_2461;
+GMAT COSMOS_2461.DateFormat = UTCGregorian;
+GMAT COSMOS_2461.Epoch = '18 Sep 2022 08:00:00.000';
+GMAT COSMOS_2461.CoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2461.DisplayStateType = Keplerian;
+GMAT COSMOS_2461.SMA = 25478.00000000003;
+GMAT COSMOS_2461.ECC = 6.36947761888649e-016;
+GMAT COSMOS_2461.INC = 64.8;
+GMAT COSMOS_2461.RAAN = 360;
+GMAT COSMOS_2461.AOP = 0;
+GMAT COSMOS_2461.TA = 42.94000000000001;
+GMAT COSMOS_2461.DryMass = 850;
+GMAT COSMOS_2461.Cd = 2.2;
+GMAT COSMOS_2461.Cr = 1.8;
+GMAT COSMOS_2461.DragArea = 15;
+GMAT COSMOS_2461.SRPArea = 1;
+GMAT COSMOS_2461.NAIFId = -10000001;
+GMAT COSMOS_2461.NAIFIdReferenceFrame = -9000001;
+GMAT COSMOS_2461.OrbitColor = [196 0 98];
+GMAT COSMOS_2461.TargetColor = Teal;
+GMAT COSMOS_2461.OrbitErrorCovariance = [ 1e+070 0 0 0 0 0 ; 0 1e+070 0 0 0 0 ; 0 0 1e+070 0 0 0 ; 0 0 0 1e+070 0 0 ; 0 0 0 0 1e+070 0 ; 0 0 0 0 0 1e+070 ];
+GMAT COSMOS_2461.CdSigma = 1e+070;
+GMAT COSMOS_2461.CrSigma = 1e+070;
+GMAT COSMOS_2461.Id = 'SatId';
+GMAT COSMOS_2461.Attitude = CoordinateSystemFixed;
+GMAT COSMOS_2461.SPADSRPScaleFactor = 1;
+GMAT COSMOS_2461.ModelFile = 'aura.3ds';
+GMAT COSMOS_2461.ModelOffsetX = 0;
+GMAT COSMOS_2461.ModelOffsetY = 0;
+GMAT COSMOS_2461.ModelOffsetZ = 0;
+GMAT COSMOS_2461.ModelRotationX = 0;
+GMAT COSMOS_2461.ModelRotationY = 0;
+GMAT COSMOS_2461.ModelRotationZ = 0;
+GMAT COSMOS_2461.ModelScale = 1;
+GMAT COSMOS_2461.AttitudeDisplayStateType = 'Quaternion';
+GMAT COSMOS_2461.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT COSMOS_2461.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2461.EulerAngleSequence = '321';
+
+Create Spacecraft COSMOS_2460;
+GMAT COSMOS_2460.DateFormat = UTCGregorian;
+GMAT COSMOS_2460.Epoch = '18 Sep 2022 08:00:00.000';
+GMAT COSMOS_2460.CoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2460.DisplayStateType = Keplerian;
+GMAT COSMOS_2460.SMA = 25478.00000000004;
+GMAT COSMOS_2460.ECC = 2.120881878534211e-016;
+GMAT COSMOS_2460.INC = 64.8;
+GMAT COSMOS_2460.RAAN = 360;
+GMAT COSMOS_2460.AOP = 0;
+GMAT COSMOS_2460.TA = 87.94;
+GMAT COSMOS_2460.DryMass = 850;
+GMAT COSMOS_2460.Cd = 2.2;
+GMAT COSMOS_2460.Cr = 1.8;
+GMAT COSMOS_2460.DragArea = 15;
+GMAT COSMOS_2460.SRPArea = 1;
+GMAT COSMOS_2460.NAIFId = -10000001;
+GMAT COSMOS_2460.NAIFIdReferenceFrame = -9000001;
+GMAT COSMOS_2460.OrbitColor = [255 0 255];
+GMAT COSMOS_2460.TargetColor = Teal;
+GMAT COSMOS_2460.OrbitErrorCovariance = [ 1e+070 0 0 0 0 0 ; 0 1e+070 0 0 0 0 ; 0 0 1e+070 0 0 0 ; 0 0 0 1e+070 0 0 ; 0 0 0 0 1e+070 0 ; 0 0 0 0 0 1e+070 ];
+GMAT COSMOS_2460.CdSigma = 1e+070;
+GMAT COSMOS_2460.CrSigma = 1e+070;
+GMAT COSMOS_2460.Id = 'SatId';
+GMAT COSMOS_2460.Attitude = CoordinateSystemFixed;
+GMAT COSMOS_2460.SPADSRPScaleFactor = 1;
+GMAT COSMOS_2460.ModelFile = 'aura.3ds';
+GMAT COSMOS_2460.ModelOffsetX = 0;
+GMAT COSMOS_2460.ModelOffsetY = 0;
+GMAT COSMOS_2460.ModelOffsetZ = 0;
+GMAT COSMOS_2460.ModelRotationX = 0;
+GMAT COSMOS_2460.ModelRotationY = 0;
+GMAT COSMOS_2460.ModelRotationZ = 0;
+GMAT COSMOS_2460.ModelScale = 1;
+GMAT COSMOS_2460.AttitudeDisplayStateType = 'Quaternion';
+GMAT COSMOS_2460.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT COSMOS_2460.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2460.EulerAngleSequence = '321';
+
+Create Spacecraft COSMOS_2492;
+GMAT COSMOS_2492.DateFormat = UTCGregorian;
+GMAT COSMOS_2492.Epoch = '18 Sep 2022 08:00:00.000';
+GMAT COSMOS_2492.CoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2492.DisplayStateType = Keplerian;
+GMAT COSMOS_2492.SMA = 25478.00000000004;
+GMAT COSMOS_2492.ECC = 2.270846433783473e-016;
+GMAT COSMOS_2492.INC = 64.8;
+GMAT COSMOS_2492.RAAN = 360;
+GMAT COSMOS_2492.AOP = 0;
+GMAT COSMOS_2492.TA = 132.94;
+GMAT COSMOS_2492.DryMass = 850;
+GMAT COSMOS_2492.Cd = 2.2;
+GMAT COSMOS_2492.Cr = 1.8;
+GMAT COSMOS_2492.DragArea = 15;
+GMAT COSMOS_2492.SRPArea = 1;
+GMAT COSMOS_2492.NAIFId = -10000001;
+GMAT COSMOS_2492.NAIFIdReferenceFrame = -9000001;
+GMAT COSMOS_2492.OrbitColor = [255 0 255];
+GMAT COSMOS_2492.TargetColor = Teal;
+GMAT COSMOS_2492.OrbitErrorCovariance = [ 1e+070 0 0 0 0 0 ; 0 1e+070 0 0 0 0 ; 0 0 1e+070 0 0 0 ; 0 0 0 1e+070 0 0 ; 0 0 0 0 1e+070 0 ; 0 0 0 0 0 1e+070 ];
+GMAT COSMOS_2492.CdSigma = 1e+070;
+GMAT COSMOS_2492.CrSigma = 1e+070;
+GMAT COSMOS_2492.Id = 'SatId';
+GMAT COSMOS_2492.Attitude = CoordinateSystemFixed;
+GMAT COSMOS_2492.SPADSRPScaleFactor = 1;
+GMAT COSMOS_2492.ModelFile = 'aura.3ds';
+GMAT COSMOS_2492.ModelOffsetX = 0;
+GMAT COSMOS_2492.ModelOffsetY = 0;
+GMAT COSMOS_2492.ModelOffsetZ = 0;
+GMAT COSMOS_2492.ModelRotationX = 0;
+GMAT COSMOS_2492.ModelRotationY = 0;
+GMAT COSMOS_2492.ModelRotationZ = 0;
+GMAT COSMOS_2492.ModelScale = 1;
+GMAT COSMOS_2492.AttitudeDisplayStateType = 'Quaternion';
+GMAT COSMOS_2492.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT COSMOS_2492.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2492.EulerAngleSequence = '321';
+
+Create Spacecraft COSMOS_2500;
+GMAT COSMOS_2500.DateFormat = UTCGregorian;
+GMAT COSMOS_2500.Epoch = '18 Sep 2022 08:00:00.000';
+GMAT COSMOS_2500.CoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2500.DisplayStateType = Keplerian;
+GMAT COSMOS_2500.SMA = 25478.00000000006;
+GMAT COSMOS_2500.ECC = 3.406568539152605e-016;
+GMAT COSMOS_2500.INC = 64.8;
+GMAT COSMOS_2500.RAAN = 360;
+GMAT COSMOS_2500.AOP = 0;
+GMAT COSMOS_2500.TA = 177.9399999999998;
+GMAT COSMOS_2500.DryMass = 850;
+GMAT COSMOS_2500.Cd = 2.2;
+GMAT COSMOS_2500.Cr = 1.8;
+GMAT COSMOS_2500.DragArea = 15;
+GMAT COSMOS_2500.SRPArea = 1;
+GMAT COSMOS_2500.NAIFId = -10000001;
+GMAT COSMOS_2500.NAIFIdReferenceFrame = -9000001;
+GMAT COSMOS_2500.OrbitColor = [255 0 255];
+GMAT COSMOS_2500.TargetColor = Teal;
+GMAT COSMOS_2500.OrbitErrorCovariance = [ 1e+070 0 0 0 0 0 ; 0 1e+070 0 0 0 0 ; 0 0 1e+070 0 0 0 ; 0 0 0 1e+070 0 0 ; 0 0 0 0 1e+070 0 ; 0 0 0 0 0 1e+070 ];
+GMAT COSMOS_2500.CdSigma = 1e+070;
+GMAT COSMOS_2500.CrSigma = 1e+070;
+GMAT COSMOS_2500.Id = 'SatId';
+GMAT COSMOS_2500.Attitude = CoordinateSystemFixed;
+GMAT COSMOS_2500.SPADSRPScaleFactor = 1;
+GMAT COSMOS_2500.ModelFile = 'aura.3ds';
+GMAT COSMOS_2500.ModelOffsetX = 0;
+GMAT COSMOS_2500.ModelOffsetY = 0;
+GMAT COSMOS_2500.ModelOffsetZ = 0;
+GMAT COSMOS_2500.ModelRotationX = 0;
+GMAT COSMOS_2500.ModelRotationY = 0;
+GMAT COSMOS_2500.ModelRotationZ = 0;
+GMAT COSMOS_2500.ModelScale = 1;
+GMAT COSMOS_2500.AttitudeDisplayStateType = 'Quaternion';
+GMAT COSMOS_2500.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT COSMOS_2500.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2500.EulerAngleSequence = '321';
+
+Create Spacecraft COSMOS_2514;
+GMAT COSMOS_2514.DateFormat = UTCGregorian;
+GMAT COSMOS_2514.Epoch = '18 Sep 2022 08:00:00.000';
+GMAT COSMOS_2514.CoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2514.DisplayStateType = Keplerian;
+GMAT COSMOS_2514.SMA = 25478.00000000003;
+GMAT COSMOS_2514.ECC = 1.836936418803301e-016;
+GMAT COSMOS_2514.INC = 64.8;
+GMAT COSMOS_2514.RAAN = 360;
+GMAT COSMOS_2514.AOP = 0;
+GMAT COSMOS_2514.TA = 222.94;
+GMAT COSMOS_2514.DryMass = 850;
+GMAT COSMOS_2514.Cd = 2.2;
+GMAT COSMOS_2514.Cr = 1.8;
+GMAT COSMOS_2514.DragArea = 15;
+GMAT COSMOS_2514.SRPArea = 1;
+GMAT COSMOS_2514.NAIFId = -10000001;
+GMAT COSMOS_2514.NAIFIdReferenceFrame = -9000001;
+GMAT COSMOS_2514.OrbitColor = [255 0 255];
+GMAT COSMOS_2514.TargetColor = Teal;
+GMAT COSMOS_2514.OrbitErrorCovariance = [ 1e+070 0 0 0 0 0 ; 0 1e+070 0 0 0 0 ; 0 0 1e+070 0 0 0 ; 0 0 0 1e+070 0 0 ; 0 0 0 0 1e+070 0 ; 0 0 0 0 0 1e+070 ];
+GMAT COSMOS_2514.CdSigma = 1e+070;
+GMAT COSMOS_2514.CrSigma = 1e+070;
+GMAT COSMOS_2514.Id = 'SatId';
+GMAT COSMOS_2514.Attitude = CoordinateSystemFixed;
+GMAT COSMOS_2514.SPADSRPScaleFactor = 1;
+GMAT COSMOS_2514.ModelFile = 'aura.3ds';
+GMAT COSMOS_2514.ModelOffsetX = 0;
+GMAT COSMOS_2514.ModelOffsetY = 0;
+GMAT COSMOS_2514.ModelOffsetZ = 0;
+GMAT COSMOS_2514.ModelRotationX = 0;
+GMAT COSMOS_2514.ModelRotationY = 0;
+GMAT COSMOS_2514.ModelRotationZ = 0;
+GMAT COSMOS_2514.ModelScale = 1;
+GMAT COSMOS_2514.AttitudeDisplayStateType = 'Quaternion';
+GMAT COSMOS_2514.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT COSMOS_2514.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2514.EulerAngleSequence = '321';
+
+Create Spacecraft COSMOS_2545;
+GMAT COSMOS_2545.DateFormat = UTCGregorian;
+GMAT COSMOS_2545.Epoch = '18 Sep 2022 08:00:00.000';
+GMAT COSMOS_2545.CoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2545.DisplayStateType = Keplerian;
+GMAT COSMOS_2545.SMA = 25478.00000000002;
+GMAT COSMOS_2545.ECC = 7.26514856263847e-016;
+GMAT COSMOS_2545.INC = 64.8;
+GMAT COSMOS_2545.RAAN = 360;
+GMAT COSMOS_2545.AOP = 0;
+GMAT COSMOS_2545.TA = 267.94;
+GMAT COSMOS_2545.DryMass = 850;
+GMAT COSMOS_2545.Cd = 2.2;
+GMAT COSMOS_2545.Cr = 1.8;
+GMAT COSMOS_2545.DragArea = 15;
+GMAT COSMOS_2545.SRPArea = 1;
+GMAT COSMOS_2545.NAIFId = -10000001;
+GMAT COSMOS_2545.NAIFIdReferenceFrame = -9000001;
+GMAT COSMOS_2545.OrbitColor = [255 0 255];
+GMAT COSMOS_2545.TargetColor = Teal;
+GMAT COSMOS_2545.OrbitErrorCovariance = [ 1e+070 0 0 0 0 0 ; 0 1e+070 0 0 0 0 ; 0 0 1e+070 0 0 0 ; 0 0 0 1e+070 0 0 ; 0 0 0 0 1e+070 0 ; 0 0 0 0 0 1e+070 ];
+GMAT COSMOS_2545.CdSigma = 1e+070;
+GMAT COSMOS_2545.CrSigma = 1e+070;
+GMAT COSMOS_2545.Id = 'SatId';
+GMAT COSMOS_2545.Attitude = CoordinateSystemFixed;
+GMAT COSMOS_2545.SPADSRPScaleFactor = 1;
+GMAT COSMOS_2545.ModelFile = 'aura.3ds';
+GMAT COSMOS_2545.ModelOffsetX = 0;
+GMAT COSMOS_2545.ModelOffsetY = 0;
+GMAT COSMOS_2545.ModelOffsetZ = 0;
+GMAT COSMOS_2545.ModelRotationX = 0;
+GMAT COSMOS_2545.ModelRotationY = 0;
+GMAT COSMOS_2545.ModelRotationZ = 0;
+GMAT COSMOS_2545.ModelScale = 1;
+GMAT COSMOS_2545.AttitudeDisplayStateType = 'Quaternion';
+GMAT COSMOS_2545.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT COSMOS_2545.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT COSMOS_2545.EulerAngleSequence = '321';
+
+Create Spacecraft GLONASS_K;
+GMAT GLONASS_K.DateFormat = UTCGregorian;
+GMAT GLONASS_K.Epoch = '18 Sep 2022 08:00:00.000';
+GMAT GLONASS_K.CoordinateSystem = EarthMJ2000Eq;
+GMAT GLONASS_K.DisplayStateType = Keplerian;
+GMAT GLONASS_K.SMA = 6577.999999999997;
+GMAT GLONASS_K.ECC = 2.345180601527224e-016;
+GMAT GLONASS_K.INC = 62.925556;
+GMAT GLONASS_K.RAAN = 0;
+GMAT GLONASS_K.AOP = 0;
+GMAT GLONASS_K.TA = 0;
+GMAT GLONASS_K.DryMass = 850;
+GMAT GLONASS_K.Cd = 2.2;
+GMAT GLONASS_K.Cr = 1.8;
+GMAT GLONASS_K.DragArea = 15;
+GMAT GLONASS_K.SRPArea = 1;
+GMAT GLONASS_K.Tanks = {ChemicalTank1};
+GMAT GLONASS_K.NAIFId = -10036001;
+GMAT GLONASS_K.NAIFIdReferenceFrame = -9036001;
+GMAT GLONASS_K.OrbitColor = [255 0 0];
+GMAT GLONASS_K.TargetColor = DarkSlateGray;
+GMAT GLONASS_K.OrbitErrorCovariance = [ 1e+070 0 0 0 0 0 ; 0 1e+070 0 0 0 0 ; 0 0 1e+070 0 0 0 ; 0 0 0 1e+070 0 0 ; 0 0 0 0 1e+070 0 ; 0 0 0 0 0 1e+070 ];
+GMAT GLONASS_K.CdSigma = 1e+070;
+GMAT GLONASS_K.CrSigma = 1e+070;
+GMAT GLONASS_K.Id = 'SatId';
+GMAT GLONASS_K.Attitude = CoordinateSystemFixed;
+GMAT GLONASS_K.SPADSRPScaleFactor = 1;
+GMAT GLONASS_K.ModelFile = 'aura.3ds';
+GMAT GLONASS_K.ModelOffsetX = 0;
+GMAT GLONASS_K.ModelOffsetY = 0;
+GMAT GLONASS_K.ModelOffsetZ = 0;
+GMAT GLONASS_K.ModelRotationX = 0;
+GMAT GLONASS_K.ModelRotationY = 0;
+GMAT GLONASS_K.ModelRotationZ = 0;
+GMAT GLONASS_K.ModelScale = 1;
+GMAT GLONASS_K.AttitudeDisplayStateType = 'Quaternion';
+GMAT GLONASS_K.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT GLONASS_K.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT GLONASS_K.EulerAngleSequence = '321';
+
+%----------------------------------------
+%---------- Hardware Components
+%----------------------------------------
+
+Create ChemicalTank ChemicalTank1;
+GMAT ChemicalTank1.AllowNegativeFuelMass = true;
+GMAT ChemicalTank1.FuelMass = 756;
+GMAT ChemicalTank1.Pressure = 1500;
+GMAT ChemicalTank1.Temperature = 20;
+GMAT ChemicalTank1.RefTemperature = 20;
+GMAT ChemicalTank1.Volume = 3;
+GMAT ChemicalTank1.FuelDensity = 1260;
+GMAT ChemicalTank1.PressureModel = PressureRegulated;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+GMAT DefaultProp_ForceModel.CentralBody = Earth;
+GMAT DefaultProp_ForceModel.PrimaryBodies = {Earth};
+GMAT DefaultProp_ForceModel.PointMasses = {Jupiter, Luna, Mars, Mercury, Neptune, Pluto, Saturn, Sun, Uranus, Venus};
+GMAT DefaultProp_ForceModel.SRP = On;
+GMAT DefaultProp_ForceModel.RelativisticCorrection = Off;
+GMAT DefaultProp_ForceModel.ErrorControl = RSSStep;
+GMAT DefaultProp_ForceModel.GravityField.Earth.Degree = 9;
+GMAT DefaultProp_ForceModel.GravityField.Earth.Order = 9;
+GMAT DefaultProp_ForceModel.GravityField.Earth.StmLimit = 100;
+GMAT DefaultProp_ForceModel.GravityField.Earth.PotentialFile = 'JGM2.cof';
+GMAT DefaultProp_ForceModel.GravityField.Earth.TideModel = 'SolidAndPole';
+GMAT DefaultProp_ForceModel.SRP.Flux = 1367;
+GMAT DefaultProp_ForceModel.SRP.SRPModel = Spherical;
+GMAT DefaultProp_ForceModel.SRP.Nominal_Sun = 149597870.691;
+GMAT DefaultProp_ForceModel.Drag.AtmosphereModel = MSISE90;
+GMAT DefaultProp_ForceModel.Drag.HistoricWeatherSource = 'ConstantFluxAndGeoMag';
+GMAT DefaultProp_ForceModel.Drag.PredictedWeatherSource = 'ConstantFluxAndGeoMag';
+GMAT DefaultProp_ForceModel.Drag.CSSISpaceWeatherFile = 'SpaceWeather-All-v1.2.txt';
+GMAT DefaultProp_ForceModel.Drag.SchattenFile = 'SchattenPredict.txt';
+GMAT DefaultProp_ForceModel.Drag.F107 = 150;
+GMAT DefaultProp_ForceModel.Drag.F107A = 150;
+GMAT DefaultProp_ForceModel.Drag.MagneticIndex = 3;
+GMAT DefaultProp_ForceModel.Drag.SchattenErrorModel = 'Nominal';
+GMAT DefaultProp_ForceModel.Drag.SchattenTimingModel = 'NominalCycle';
+
+Create ForceModel Propagator1_ForceModel;
+GMAT Propagator1_ForceModel.CentralBody = Earth;
+GMAT Propagator1_ForceModel.PointMasses = {Earth};
+GMAT Propagator1_ForceModel.Drag = None;
+GMAT Propagator1_ForceModel.SRP = Off;
+GMAT Propagator1_ForceModel.RelativisticCorrection = Off;
+GMAT Propagator1_ForceModel.ErrorControl = RSSStep;
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator Propagator1;
+GMAT Propagator1.FM = Propagator1_ForceModel;
+GMAT Propagator1.Type = RungeKutta89;
+GMAT Propagator1.InitialStepSize = 60;
+GMAT Propagator1.Accuracy = 9.999999999999999e-012;
+GMAT Propagator1.MinStep = 0.001;
+GMAT Propagator1.MaxStep = 50;
+GMAT Propagator1.MaxStepAttempts = 50;
+GMAT Propagator1.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Burns
+%----------------------------------------
+
+Create ImpulsiveBurn Elip;
+GMAT Elip.CoordinateSystem = Local;
+GMAT Elip.Origin = Earth;
+GMAT Elip.Axes = VNB;
+GMAT Elip.Element1 = 0;
+GMAT Elip.Element2 = 0;
+GMAT Elip.Element3 = 0;
+GMAT Elip.DecrementMass = true;
+GMAT Elip.Tank = {ChemicalTank1};
+GMAT Elip.Isp = 300;
+GMAT Elip.GravitationalAccel = 9.810000000000001;
+
+Create ImpulsiveBurn Op;
+GMAT Op.CoordinateSystem = Local;
+GMAT Op.Origin = Earth;
+GMAT Op.Axes = VNB;
+GMAT Op.Element1 = 0;
+GMAT Op.Element2 = 0;
+GMAT Op.Element3 = 0;
+GMAT Op.DecrementMass = true;
+GMAT Op.Tank = {ChemicalTank1};
+GMAT Op.Isp = 300;
+GMAT Op.GravitationalAccel = 9.810000000000001;
+
+%----------------------------------------
+%---------- Solvers
+%----------------------------------------
+
+Create DifferentialCorrector DefaultDC;
+GMAT DefaultDC.ShowProgress = true;
+GMAT DefaultDC.ReportStyle = Normal;
+GMAT DefaultDC.ReportFile = 'DifferentialCorrectorDefaultDC.data';
+GMAT DefaultDC.MaximumIterations = 25;
+GMAT DefaultDC.DerivativeMethod = ForwardDifference;
+GMAT DefaultDC.Algorithm = NewtonRaphson;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create GroundTrackPlot DefaultGroundTrackPlot;
+GMAT DefaultGroundTrackPlot.SolverIterations = Current;
+GMAT DefaultGroundTrackPlot.UpperLeft = [ 0.05410122164048865 0.5446096654275093 ];
+GMAT DefaultGroundTrackPlot.Size = [ 0.4450261780104712 0.4684014869888476 ];
+GMAT DefaultGroundTrackPlot.RelativeZOrder = 1347;
+GMAT DefaultGroundTrackPlot.Maximized = false;
+GMAT DefaultGroundTrackPlot.Add = {COSMOS_2433};
+GMAT DefaultGroundTrackPlot.DataCollectFrequency = 1;
+GMAT DefaultGroundTrackPlot.UpdatePlotFrequency = 50;
+GMAT DefaultGroundTrackPlot.NumPointsToRedraw = 0;
+GMAT DefaultGroundTrackPlot.ShowPlot = true;
+GMAT DefaultGroundTrackPlot.MaxPlotPoints = 20000;
+GMAT DefaultGroundTrackPlot.CentralBody = Earth;
+GMAT DefaultGroundTrackPlot.TextureMap = 'ModifiedBlueMarble.jpg';
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView View;
+GMAT View.SolverIterations = Current;
+GMAT View.UpperLeft = [ 0.112565445026178 0.007434944237918215 ];
+GMAT View.Size = [ 0.6273996509598604 0.845724907063197 ];
+GMAT View.RelativeZOrder = 2141;
+GMAT View.Maximized = true;
+GMAT View.Add = {GLONASS_K, COSMOS_2432, COSMOS_2433, COSMOS_2460, COSMOS_2492, COSMOS_2500, COSMOS_2514, COSMOS_2545, COSMOS_2461, Earth};
+GMAT View.CoordinateSystem = EarthMJ2000Eq;
+GMAT View.DrawObject = [ true true true true true true true true true true ];
+GMAT View.DataCollectFrequency = 1;
+GMAT View.UpdatePlotFrequency = 50;
+GMAT View.NumPointsToRedraw = 20;
+GMAT View.ShowPlot = true;
+GMAT View.MaxPlotPoints = 20000;
+GMAT View.ShowLabels = true;
+GMAT View.ViewPointReference = Earth;
+GMAT View.ViewPointVector = [ 30000 0 0 ];
+GMAT View.ViewDirection = Earth;
+GMAT View.ViewScaleFactor = 1;
+GMAT View.ViewUpCoordinateSystem = EarthMJ2000Eq;
+GMAT View.ViewUpAxis = Z;
+GMAT View.EclipticPlane = Off;
+GMAT View.XYPlane = Off;
+GMAT View.WireFrame = Off;
+GMAT View.Axes = Off;
+GMAT View.Grid = Off;
+GMAT View.SunLine = Off;
+GMAT View.UseInitialView = Off;
+GMAT View.StarCount = 7000;
+GMAT View.EnableStars = On;
+GMAT View.EnableConstellations = Off;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate Propagator1(COSMOS_2433, COSMOS_2432, COSMOS_2460, COSMOS_2461, COSMOS_2492, COSMOS_2500, COSMOS_2514, COSMOS_2545, GLONASS_K) {COSMOS_2433.ElapsedSecs = 1};
+Propagate 'NoEpochFix' Propagator1(GLONASS_K, COSMOS_2461, COSMOS_2432, COSMOS_2433, COSMOS_2460, COSMOS_2492, COSMOS_2500, COSMOS_2514, COSMOS_2545) {GLONASS_K.ElapsedSecs = GLONASS_K.Earth.OrbitPeriod};
+Target 'Elip' DefaultDC {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
+   Maneuver 'Maneuver_Elip' Elip(GLONASS_K);
+   Vary 'DV_Elip' DefaultDC(Elip.Element1 = 2.03, {Perturbation = 0.0001, Lower = 1.5, Upper = 3, MaxStep = 0.01, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+   Achieve 'RadApo_Elip' DefaultDC(GLONASS_K.Earth.RadApo = 25478, {Tolerance = 1});
+EndTarget;  % For targeter DefaultDC
+Target 'Rendezvous' DefaultDC {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
+   Vary 'TA_COSMOS' DefaultDC(COSMOS_2461.TA = 90.09999999999999, {Perturbation = 0.00001, Lower = 80, Upper = 100, MaxStep = 0.01, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+   Propagate 'Propagate_Rendezvous' Propagator1(COSMOS_2461, GLONASS_K, COSMOS_2432, COSMOS_2433, COSMOS_2460, COSMOS_2492, COSMOS_2500, COSMOS_2514, COSMOS_2545) {GLONASS_K.Earth.Apoapsis};
+   Achieve 'Z_COSMOS' DefaultDC(COSMOS_2461.EarthMJ2000Eq.Z = 0, {Tolerance = 1});
+EndTarget;  % For targeter DefaultDC
+Target 'Op' DefaultDC {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
+   Maneuver 'Maneuver_Op' Op(GLONASS_K);
+   Vary 'DV1_Op' DefaultDC(Op.Element1 = 1.42, {Perturbation = 0.0001, Lower = 0.1, Upper = 5, MaxStep = 0.2, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+   Vary 'DV2_Op' DefaultDC(Op.Element2 = -0.13, {Perturbation = 0.0001, Lower = -0.2, Upper = -0.00001, MaxStep = 0.2, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+   Achieve 'INC_Op' DefaultDC(GLONASS_K.EarthMJ2000Eq.INC = 64.8, {Tolerance = 0.1});
+   Achieve 'ECC_Op' DefaultDC(GLONASS_K.Earth.ECC = 0, {Tolerance = 0.1});
+EndTarget;  % For targeter DefaultDC
+
+BeginScript
+   GMAT COSMOS_2461.SMA = 10000000;
+EndScript;
+Propagate Propagator1(GLONASS_K, COSMOS_2432, COSMOS_2433, COSMOS_2460, COSMOS_2492, COSMOS_2500, COSMOS_2514, COSMOS_2545, COSMOS_2461) {GLONASS_K.ElapsedSecs = 10000};
