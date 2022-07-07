@@ -52,13 +52,21 @@ GMAT Fregat.EulerAngleSequence = '321';
 
 Create ChemicalTank ChemicalTank1;
 GMAT ChemicalTank1.AllowNegativeFuelMass = true;
-GMAT ChemicalTank1.FuelMass = 500;
+GMAT ChemicalTank1.FuelMass = 4000;
 GMAT ChemicalTank1.Pressure = 1500;
 GMAT ChemicalTank1.Temperature = 20;
 GMAT ChemicalTank1.RefTemperature = 20;
 GMAT ChemicalTank1.Volume = 4;
 GMAT ChemicalTank1.FuelDensity = 1260;
 GMAT ChemicalTank1.PressureModel = PressureRegulated;
+
+
+
+
+
+
+
+
 
 
 
@@ -109,17 +117,29 @@ GMAT DefaultProp.StopIfAccuracyIsViolated = true;
 %---------- Burns
 %----------------------------------------
 
-Create ImpulsiveBurn GTO;
-GMAT GTO.CoordinateSystem = Local;
-GMAT GTO.Origin = Earth;
-GMAT GTO.Axes = VNB;
-GMAT GTO.Element1 = 0;
-GMAT GTO.Element2 = 0;
-GMAT GTO.Element3 = 0;
-GMAT GTO.DecrementMass = true;
-GMAT GTO.Tank = {ChemicalTank1};
-GMAT GTO.Isp = 327;
-GMAT GTO.GravitationalAccel = 9.810000000000001;
+Create ImpulsiveBurn Elip1;
+GMAT Elip1.CoordinateSystem = Local;
+GMAT Elip1.Origin = Earth;
+GMAT Elip1.Axes = VNB;
+GMAT Elip1.Element1 = 0;
+GMAT Elip1.Element2 = 0;
+GMAT Elip1.Element3 = 0;
+GMAT Elip1.DecrementMass = true;
+GMAT Elip1.Tank = {ChemicalTank1};
+GMAT Elip1.Isp = 327;
+GMAT Elip1.GravitationalAccel = 9.810000000000001;
+
+Create ImpulsiveBurn Elip2;
+GMAT Elip2.CoordinateSystem = Local;
+GMAT Elip2.Origin = Earth;
+GMAT Elip2.Axes = VNB;
+GMAT Elip2.Element1 = 0;
+GMAT Elip2.Element2 = 0;
+GMAT Elip2.Element3 = 0;
+GMAT Elip2.DecrementMass = true;
+GMAT Elip2.Tank = {ChemicalTank1};
+GMAT Elip2.Isp = 327;
+GMAT Elip2.GravitationalAccel = 9.810000000000001;
 
 Create ImpulsiveBurn Circ;
 GMAT Circ.CoordinateSystem = Local;
@@ -141,7 +161,7 @@ Create DifferentialCorrector DefaultDC;
 GMAT DefaultDC.ShowProgress = true;
 GMAT DefaultDC.ReportStyle = Normal;
 GMAT DefaultDC.ReportFile = 'DifferentialCorrectorDefaultDC.data';
-GMAT DefaultDC.MaximumIterations = 200;
+GMAT DefaultDC.MaximumIterations = 1000;
 GMAT DefaultDC.DerivativeMethod = ForwardDifference;
 GMAT DefaultDC.Algorithm = NewtonRaphson;
 
@@ -151,9 +171,9 @@ GMAT DefaultDC.Algorithm = NewtonRaphson;
 
 Create OrbitView DefaultOrbitView;
 GMAT DefaultOrbitView.SolverIterations = Current;
-GMAT DefaultOrbitView.UpperLeft = [ 0.06195462478184991 0.1351351351351351 ];
-GMAT DefaultOrbitView.Size = [ 0.5523560209424084 0.3675675675675676 ];
-GMAT DefaultOrbitView.RelativeZOrder = 1968;
+GMAT DefaultOrbitView.UpperLeft = [ 0.08464223385689354 0.120817843866171 ];
+GMAT DefaultOrbitView.Size = [ 0.8298429319371727 0.6895910780669146 ];
+GMAT DefaultOrbitView.RelativeZOrder = 5413;
 GMAT DefaultOrbitView.Maximized = false;
 GMAT DefaultOrbitView.Add = {Fregat, Earth, Sun};
 GMAT DefaultOrbitView.CoordinateSystem = EarthMJ2000Eq;
@@ -183,9 +203,9 @@ GMAT DefaultOrbitView.EnableConstellations = On;
 
 Create GroundTrackPlot DefaultGroundTrackPlot;
 GMAT DefaultGroundTrackPlot.SolverIterations = Current;
-GMAT DefaultGroundTrackPlot.UpperLeft = [ 0.1282722513089005 0.5315315315315315 ];
-GMAT DefaultGroundTrackPlot.Size = [ 0.5165794066317626 0.3081081081081081 ];
-GMAT DefaultGroundTrackPlot.RelativeZOrder = 1961;
+GMAT DefaultGroundTrackPlot.UpperLeft = [ 0.1230366492146597 0.4721189591078067 ];
+GMAT DefaultGroundTrackPlot.Size = [ 0.5165794066317626 0.2806691449814127 ];
+GMAT DefaultGroundTrackPlot.RelativeZOrder = 5255;
 GMAT DefaultGroundTrackPlot.Maximized = false;
 GMAT DefaultGroundTrackPlot.Add = {Fregat};
 GMAT DefaultGroundTrackPlot.DataCollectFrequency = 1;
@@ -206,20 +226,26 @@ GMAT DefaultGroundTrackPlot.TextureMap = 'ModifiedBlueMarble.jpg';
 BeginMissionSequence;
 Propagate 'NoEpochFix' DefaultProp(Fregat) {Fregat.ElapsedSecs = 1};
 Target 'Fuel' DefaultDC {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
-   Vary 'DFuelMass' DefaultDC(Fregat.ChemicalTank1.FuelMass = 3760, {Perturbation = 1, Lower = 1000, Upper = 6000, MaxStep = 100, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
-   Target 'GTO' DefaultDC {SolveMode = Solve, ExitMode = SaveAndContinue, ShowProgressWindow = true};
-      Maneuver 'Maneuver_GTO' GTO(Fregat);
-      Vary 'DV_GTO' DefaultDC(GTO.Element1 = 2.030055667852537, {Perturbation = 0.000001, Lower = 2.027, Upper = 2.035, MaxStep = 0.00005, AdditiveScaleFactor = 0, MultiplicativeScaleFactor = 1.0});
-      Propagate 'Propagate_GTO' DefaultProp(Fregat) {Fregat.Earth.Apoapsis, OrbitColor = [255 0 0]};
-      Achieve 'RadApo_GTO' DefaultDC(Fregat.Earth.RadApo = 25478, {Tolerance = 1});
+   Vary 'DFuelMass' DefaultDC(Fregat.ChemicalTank1.FuelMass = 4100, {Perturbation = 1, Lower = 1000, Upper = 5000, MaxStep = 100, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+   Target 'Elip1' DefaultDC {SolveMode = Solve, ExitMode = SaveAndContinue, ShowProgressWindow = true};
+      Maneuver 'Maneuver_Elip1' Elip1(Fregat);
+      Vary 'DV_Elip1' DefaultDC(Elip1.Element1 = 2.185486006556801, {Perturbation = 0.00001, Lower = 2, Upper = 2.5, MaxStep = 0.0001, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+      Propagate 'Propagate_Elip1' DefaultProp(Fregat) {Fregat.Earth.Apoapsis, OrbitColor = [255 0 0]};
+      Achieve 'RadApo_Elip1' DefaultDC(Fregat.Earth.RadApo = 30000, {Tolerance = 1});
+   EndTarget;  % For targeter DefaultDC
+   Target 'Elip2' DefaultDC {SolveMode = Solve, ExitMode = SaveAndContinue, ShowProgressWindow = true};
+      Maneuver 'Maneuver_Elip2' Elip2(Fregat);
+      Vary 'DV1_Elip2' DefaultDC(Elip2.Element1 = 1.3054, {Perturbation = 0.0000001, Lower = 1.2, Upper = 1.4, MaxStep = 0.0001, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+      Vary 'DV2_Elip2' DefaultDC(Elip2.Element2 = -0.115, {Perturbation = 0.00001, Lower = -0.12, Upper = -0.113, MaxStep = 0.0001, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+      Propagate 'Propagate_Elip2' DefaultProp(Fregat) {Fregat.Earth.Periapsis, OrbitColor = [0 255 0]};
+      Achieve 'RadPer_Elip2' DefaultDC(Fregat.Earth.RadPer = 25478, {Tolerance = 1});
+      Achieve 'INC_Elip2' DefaultDC(Fregat.EarthMJ2000Eq.INC = 64.8, {Tolerance = 0.1});
    EndTarget;  % For targeter DefaultDC
    Target 'Circ' DefaultDC {SolveMode = Solve, ExitMode = SaveAndContinue, ShowProgressWindow = true};
       Maneuver 'Maneuver_Circ' Circ(Fregat);
-      Vary 'DV1_Circ' DefaultDC(Circ.Element1 = 1.420120000000001, {Perturbation = 0.0001, Lower = 1.4, Upper = 1.5, MaxStep = 0.00001, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
-      Vary 'DV2_Circ' DefaultDC(Circ.Element2 = -0.13, {Perturbation = 0.0001, Lower = -0.2, Upper = 0.01, MaxStep = 0.01, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
-      Achieve 'ECC_Circ' DefaultDC(Fregat.Earth.ECC = 0, {Tolerance = 0.01});
-      Achieve 'INC_Circ' DefaultDC(Fregat.EarthMJ2000Eq.INC = 64.8, {Tolerance = 0.01});
+      Vary 'DV_Circ' DefaultDC(Circ.Element1 = -0.1565507182172922, {Perturbation = 0.000001, Lower = -0.5, Upper = -0.01, MaxStep = 0.001, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
+      Achieve 'INC_Circ' DefaultDC(Fregat.Earth.ECC = 0, {Tolerance = 0.001});
    EndTarget;  % For targeter DefaultDC
    Achieve 'FuelMass' DefaultDC(Fregat.ChemicalTank1.FuelMass = 0, {Tolerance = 1});
 EndTarget;  % For targeter DefaultDC
-Propagate DefaultProp(Fregat) {Fregat.ElapsedSecs = Fregat.Earth.OrbitPeriod, OrbitColor = [0 128 255]};
+Propagate DefaultProp(Fregat) {Fregat.ElapsedSecs = Fregat.Earth.OrbitPeriod, OrbitColor = [0 0 255]};
