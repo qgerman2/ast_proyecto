@@ -14,5 +14,7 @@ function dv = hohmann(r1, r3, dg)
     dvg = 2*v3*sin(deg2rad(dg)/2);
     
     dv = abs(v1 - v2p) + abs(v3 - v2a) + dvg;
+
+    [abs(v1 - v2p), 2*v3*sin(deg2rad(dg)/2), dvg, dv]
 end
 

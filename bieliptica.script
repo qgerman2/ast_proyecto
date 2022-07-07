@@ -87,6 +87,7 @@ GMAT ChemicalTank1.PressureModel = PressureRegulated;
 
 
 
+
 %----------------------------------------
 %---------- ForceModels
 %----------------------------------------
@@ -171,10 +172,10 @@ GMAT DefaultDC.Algorithm = NewtonRaphson;
 
 Create OrbitView DefaultOrbitView;
 GMAT DefaultOrbitView.SolverIterations = Current;
-GMAT DefaultOrbitView.UpperLeft = [ 0.08464223385689354 0.120817843866171 ];
-GMAT DefaultOrbitView.Size = [ 0.8298429319371727 0.6895910780669146 ];
-GMAT DefaultOrbitView.RelativeZOrder = 5413;
-GMAT DefaultOrbitView.Maximized = false;
+GMAT DefaultOrbitView.UpperLeft = [ 0.08376963350785341 0.1189189189189189 ];
+GMAT DefaultOrbitView.Size = [ 0.8298429319371727 0.69009009009009 ];
+GMAT DefaultOrbitView.RelativeZOrder = 3482;
+GMAT DefaultOrbitView.Maximized = true;
 GMAT DefaultOrbitView.Add = {Fregat, Earth, Sun};
 GMAT DefaultOrbitView.CoordinateSystem = EarthMJ2000Eq;
 GMAT DefaultOrbitView.DrawObject = [ true true true ];
@@ -203,9 +204,9 @@ GMAT DefaultOrbitView.EnableConstellations = On;
 
 Create GroundTrackPlot DefaultGroundTrackPlot;
 GMAT DefaultGroundTrackPlot.SolverIterations = Current;
-GMAT DefaultGroundTrackPlot.UpperLeft = [ 0.1230366492146597 0.4721189591078067 ];
-GMAT DefaultGroundTrackPlot.Size = [ 0.5165794066317626 0.2806691449814127 ];
-GMAT DefaultGroundTrackPlot.RelativeZOrder = 5255;
+GMAT DefaultGroundTrackPlot.UpperLeft = [ 0.1221640488656196 0.4702702702702703 ];
+GMAT DefaultGroundTrackPlot.Size = [ 0.5165794066317626 0.2810810810810811 ];
+GMAT DefaultGroundTrackPlot.RelativeZOrder = 3393;
 GMAT DefaultGroundTrackPlot.Maximized = false;
 GMAT DefaultGroundTrackPlot.Add = {Fregat};
 GMAT DefaultGroundTrackPlot.DataCollectFrequency = 1;
@@ -224,7 +225,7 @@ GMAT DefaultGroundTrackPlot.TextureMap = 'ModifiedBlueMarble.jpg';
 
 
 BeginMissionSequence;
-Propagate 'NoEpochFix' DefaultProp(Fregat) {Fregat.ElapsedSecs = 1};
+Propagate 'NoEpochFix' DefaultProp(Fregat) {Fregat.ElapsedSecs = Fregat.Earth.OrbitPeriod};
 Target 'Fuel' DefaultDC {SolveMode = Solve, ExitMode = DiscardAndContinue, ShowProgressWindow = true};
    Vary 'DFuelMass' DefaultDC(Fregat.ChemicalTank1.FuelMass = 4100, {Perturbation = 1, Lower = 1000, Upper = 5000, MaxStep = 100, AdditiveScaleFactor = 0.0, MultiplicativeScaleFactor = 1.0});
    Target 'Elip1' DefaultDC {SolveMode = Solve, ExitMode = SaveAndContinue, ShowProgressWindow = true};

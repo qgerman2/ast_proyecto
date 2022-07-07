@@ -14,4 +14,5 @@ function dv = combinada(r1, r3, dg)
     dvcomb = sqrt(v2a^2 + v3^2 - 2*v2a*v3*cos(deg2rad(dg)));
     
     dv = abs(v1 - v2p) + dvcomb;
+    [abs(v1 - v2p), dvcomb, dv]
 end
